@@ -4,7 +4,7 @@ Currency converter is an application uses a simple logic for represent currencie
 
 ## How to use
 
-Simply clone the app and run it, In case of API unauthorized error you can contact API [authors ](https://exchangeratesapi.io/documentation/)
+Simply clone the app and run it, In case of API unauthorized error you can contact API [authors](https://exchangeratesapi.io/documentation/)
 
 
 ## What used in project
@@ -14,3 +14,9 @@ Simply clone the app and run it, In case of API unauthorized error you can conta
 - Dependency Injection : get_it
 - Local Storage : shared_preferences
 - Networking : http
+
+# Video
+## [Youtube link](https://www.youtube.com/watch?v=OkqjNvkWS3Y)
+
+https://user-images.githubusercontent.com/105587783/194721781-46de0cd9-8532-492a-be0e-e6102614afb6.mp4
+

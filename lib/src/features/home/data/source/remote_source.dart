@@ -1,10 +1,12 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:http/http.dart' as http;
+
 import 'package:currency_converter/src/core/error/exceptions.dart';
 import 'package:currency_converter/src/features/home/data/models/currency_converter_model.dart';
 import 'package:currency_converter/src/features/home/data/models/currency_historical_model.dart';
 import 'package:currency_converter/src/features/home/data/models/currency_model.dart';
 import 'package:currency_converter/src/utils/consts.dart';
 import 'package:currency_converter/src/utils/end_points_url.dart';
-import 'package:http/http.dart' as http;
 
 abstract class RemoteSourceData {
   Future<CurrencyModel> getLatestData();
@@ -14,6 +16,11 @@ abstract class RemoteSourceData {
 }
 
 class RemoteSourceDataImpl implements RemoteSourceData {
+  final RemoteSourceDataImpl? remoteSourceDataImpl;
+  RemoteSourceDataImpl({
+    this.remoteSourceDataImpl,
+  });
+
   @override
   Future<CurrencyModel> getLatestData() async {
     try {
@@ -22,7 +29,7 @@ class RemoteSourceDataImpl implements RemoteSourceData {
         return currencyModelFromJson(response.body);
       }
     } catch (e) {
-      Constants.errorMessage(description: e.toString());
+    Constants.errorMessage(description: e.toString());
     }
     throw ServerException();
   }
@@ -52,9 +59,9 @@ class RemoteSourceDataImpl implements RemoteSourceData {
       if (response.statusCode == 200) {
         return currencyConverterModelFromJson(response.body);
       }
-    //  print("res ${response.body}");
-    //  print("res ${response.statusCode}");
-    //  print("res ${response.request?.url}");
+      //  print("res ${response.body}");
+      //  print("res ${response.statusCode}");
+      //  print("res ${response.request?.url}");
     } catch (e) {
       Constants.errorMessage(description: e.toString());
     }

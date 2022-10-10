@@ -17,10 +17,12 @@ class CurrencyRepoImpl implements CurrencyRepo {
   final CurrencyLocalDataSourceImpl localLogic;
   final RemoteSourceDataImpl remoteLogic;
   final NetworkInfo networkInfo;
+  final CurrencyRepoImpl? currencyRepoImpl;
   CurrencyRepoImpl({
     required this.localLogic,
     required this.remoteLogic,
     required this.networkInfo,
+    this.currencyRepoImpl
   });
 
   @override
@@ -84,13 +86,14 @@ class CurrencyRepoImpl implements CurrencyRepo {
   }
 
   @override
-  Future<Either<Failure, CurrencyConverterEntity>> getCurrencyConverterData( {required String amount,
+  Future<Either<Failure, CurrencyConverterEntity>> getCurrencyConverterData(
+      {required String amount,
       required String from,
-      required String to}) async{
+      required String to}) async {
     if (await networkInfo.isConnected) {
       try {
-        final CurrencyConverterModel currencyModel =
-            await remoteLogic.getCurrencyConverterData(amount: amount, from: from, to: to);
+        final CurrencyConverterModel currencyModel = await remoteLogic
+            .getCurrencyConverterData(amount: amount, from: from, to: to);
         return Right(currencyModel);
       } on ServerException {
         return Left(ServerFailure());

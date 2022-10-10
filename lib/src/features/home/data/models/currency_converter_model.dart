@@ -13,7 +13,7 @@ String currencyConverterModelToJson(CurrencyConverterModel data) =>
     json.encode(data.toJson());
 
 class CurrencyConverterModel extends CurrencyConverterEntity {
-  CurrencyConverterModel({
+  const CurrencyConverterModel({
     DateTime? date,
     Info? info,
     Query? query,

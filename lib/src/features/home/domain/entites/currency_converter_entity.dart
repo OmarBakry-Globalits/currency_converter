@@ -1,5 +1,5 @@
 class CurrencyConverterEntity {
-  CurrencyConverterEntity({
+ const CurrencyConverterEntity({
     this.date,
     this.info,
     this.query,
@@ -7,11 +7,11 @@ class CurrencyConverterEntity {
     this.success,
   });
 
-  DateTime? date;
-  Info? info;
-  Query? query;
-  num? result;
-  bool? success;
+ final DateTime? date;
+ final Info? info;
+ final Query? query;
+ final num? result;
+ final bool? success;
 }
 
 

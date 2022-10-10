@@ -24,42 +24,44 @@ mixin Constants {
     exit(0);
   }
 
-  static Future<void> errorMessage(
+  static Future<dynamic> errorMessage(
       {String? title, String? description, Function? onPressed}) async {
-    return showDialog<void>(
-      context: navigatorKey.currentContext!,
-      barrierDismissible: true,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(title ?? "Alert"),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: <Widget>[
-                Text(description ?? 'Error Occuered'),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Ok'),
-              onPressed: () {
-                if (onPressed != null) {
-                  onPressed();
-                } else {
-                  Navigator.of(context).pop();
-                }
-              },
-            ),
-            TextButton(
-              child: const Text('Cancle'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
+    return navigatorKey.currentContext == null
+        ? const SizedBox.shrink()
+        : showDialog<void>(
+            context: navigatorKey.currentContext!,
+            barrierDismissible: true,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text(title ?? "Alert"),
+                content: SingleChildScrollView(
+                  child: ListBody(
+                    children: <Widget>[
+                      Text(description ?? 'Error Occuered'),
+                    ],
+                  ),
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    child: const Text('Ok'),
+                    onPressed: () {
+                      if (onPressed != null) {
+                        onPressed();
+                      } else {
+                        Navigator.of(context).pop();
+                      }
+                    },
+                  ),
+                  TextButton(
+                    child: const Text('Cancle'),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              );
+            },
+          );
   }
 
   static TextStyle selectedTextStyle(bool isSelected) => TextStyle(

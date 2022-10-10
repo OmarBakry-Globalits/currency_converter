@@ -36,13 +36,12 @@ void main() async {
       expect: () => [CurrencyConverterInitial(), ToStateChanges()],
     );
 
-    blocTest(
-      'getConvertedDataFunc',
-      build: () => converterCubit,
-      act: (cubit) => converterCubit.getConvertedDataFunc(
-          amount: '5', from: 'USD', to: 'EGP'),
-      expect: () =>
-          [LoadingState(), const ErrorState(message: 'Server Exception')],
-    );
+    blocTest('getConvertedDataFunc',
+        build: () => converterCubit,
+        act: (cubit) => converterCubit.getConvertedDataFunc(
+            amount: '5', from: 'USD', to: 'EGP'),
+        expect: () =>
+            [LoadingState(), const ErrorState(message: 'Server Exception')],
+        tearDown: () => converterCubit.close());
   });
 }

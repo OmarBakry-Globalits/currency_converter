@@ -15,6 +15,13 @@ Simply clone the app and run it, In case of API unauthorized error you can conta
 - Local Storage : shared_preferences
 - Networking : http
 
+## Unit Test
+- [Local Storage](https://github.com/OmarBakry-Globalits/currency_converter/blob/main/test/local_logic/local_unit_test.dart)
+- [Remote API calling](https://github.com/OmarBakry-Globalits/currency_converter/blob/main/test/remote_logic/remote_unit_test.dart)
+- [Repository](https://github.com/OmarBakry-Globalits/currency_converter/blob/main/test/repo_logic/repo_unit_test.dart)
+- [Currency Cubit](https://github.com/OmarBakry-Globalits/currency_converter/blob/main/test/cubit/currency_cubit_test.dart)
+- [Currency Converter Cubit](https://github.com/OmarBakry-Globalits/currency_converter/blob/main/test/cubit/currency_converter_cubit_test.dart)
+
 # Video
 ## [Youtube link](https://www.youtube.com/watch?v=OkqjNvkWS3Y)
 

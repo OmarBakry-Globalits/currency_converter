@@ -45,7 +45,7 @@ class CurrencyConverterCubit extends Cubit<CurrencyConverterState> {
     return true;
   }
 
-  getConvertedDataFunc(
+Future<dynamic> getConvertedDataFunc(
       {required String to,
       required String from,
       required String amount}) async {
@@ -59,10 +59,8 @@ class CurrencyConverterCubit extends Cubit<CurrencyConverterState> {
       return Constants.errorMessage(description: 'Please validate your inputs');
     }
     emit(LoadingState());
-    // await Constants.showLoading();
     final Either<Failure, CurrencyConverterEntity> convertedData =
         await getConvertedData(amount: amount, to: to, from: from);
-    // Constants.hideLoading();
     return emit(_getFailureOrConvertedData(convertedData));
   }
 

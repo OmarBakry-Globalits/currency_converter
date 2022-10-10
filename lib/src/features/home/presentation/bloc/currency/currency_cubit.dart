@@ -22,9 +22,7 @@ class CurrencyCubit extends Cubit<CurrencyState> {
 
   _initFunction() async {
     emit(LoadingState());
-    // await Constants.showLoading();
     final Either<Failure, CurrencyEntity> data = await getLatestData();
-    // Constants.hideLoading();
     emit(LatestSelected());
     emit(_getFailureOrData(data));
   }
